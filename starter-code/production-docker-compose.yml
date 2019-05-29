@@ -3,8 +3,8 @@ version: "3"
 services:
   backend:
     build: ./php
-  production-nginx-container:
-    container_name: 'production-nginx-container'
+  frontend:
+    build: ./public_html
     image: nginx:latest
     ports:
       - "80:80"
@@ -15,5 +15,3 @@ services:
       - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
       - /docker-volumes/pwp/etc/letsencrypt/live/dont-blindly-copy-past.face-palm/fullchain.pem:/etc/letsencrypt/live/dont-blindly-copy-past.face-palm/fullchain.pem
       - /docker-volumes/pwp/etc/letsencrypt/live/dont-blindly-copy-past.face-palm/privkey.pem:/etc/letsencrypt/live/dont-blindly-copy-past.face-palm/privkey.pem
-
-
