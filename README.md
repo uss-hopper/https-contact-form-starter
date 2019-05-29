@@ -38,8 +38,8 @@ certonly --webroot \
 	* issues the ssl certificate for staging purposes
 * `-d dont-blindly-copy-past.face-palm`
 	* specifies the domain/domains to verify for the ssl certificate
-4. If the command from step 3 is successful run `sudo rm -rf /docker-volumes/pwp`
-5. run the same command from step 3 but this time without the staging flag and make sure add an email for reminders on when to reissue the certificate
+5. If the command from step 3 is successful run `sudo rm -rf /docker-volumes/pwp`
+6. run the same command from step 3 but this time without the staging flag and make sure add an email for reminders on when to reissue the certificate
 ```
 sudo docker container run -it --rm \
 -v /docker-volumes/pwp/etc/letsencrypt:/etc/letsencrypt \
