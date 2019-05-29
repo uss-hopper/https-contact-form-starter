@@ -56,9 +56,10 @@ certonly --webroot \
 ### Setting Up Production Containers for PWP
 1. add `/starter-code/frontend.Dockerfile` to your project's `/public_html/Dockerfile`
 2. add `/starter-code/php.Dockerfile` to your project's `/php/Dockerfile`
-3. add `/starter-code/default-docker-compose.yml` to your project's `/docker-compose.yml` \
+
 
 * __optional__: If you are not using HTTPS
+	* add `/starter-code/default-docker-compose.yml` to your project's `/docker-compose.yml`
 	* add `/starter-code/default.conf` to `/production.conf`
 		* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
 	* add `/starter-code/default-doceker-compose` to your projects
