@@ -1,9 +1,10 @@
-# ISSUING  SSL CERTS WITH DOCKER CERTBOT	
+# ISSUING  SSL CERTS WITH DOCKER CERTBOT
 ## [original documentation](https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx)
 ### Issuing the initial cert
 1. add `/starter-code/starter-docker-compose.yml` to `/docker-compose.yml`
 2. add `/starter-code/nginx.conf` to `/nginx.conf`
-3. run the command below
+3. run `sudo docker-compose up`
+4. run the command below
 ```
 sudo docker container run -it --rm \
 -v /docker-volumes/pwp/etc/letsencrypt:/etc/letsencrypt \
@@ -26,19 +27,19 @@ certonly --webroot \
  	*  binds `/data/letsencrypt` in the certbot container to the localhost's `/home/user/project/public_html` so that the ACME challenge can pass.
 *  `-v "/docker-volumes/pwp/var/log/:/var/log/letsencrypt" \`
 	* binds the `/var/log/letsencrypt" \` in the certbot container to the localhost's `/docker-volumes/pwp/var/log/` so that debugging logs from the certbot container can be preserved.
-* `certbot/certbot` 
+* `certbot/certbot`
 	* is the container that is going to be used.
 * `certonly --webroot \` sets the webroot to `/`
-* `--register-unsafely-without-email --agree-tos \` 
+* `--register-unsafely-without-email --agree-tos \`
 	* register unsafely for staging purposes and agree to the terms of service  
-* `--webroot-path=/data/letsencrypt \` 
-	* sets the webroot-path to `/data/letsencrypt` inside of the certbot container 
-* `--staging \` 
+* `--webroot-path=/data/letsencrypt \`
+	* sets the webroot-path to `/data/letsencrypt` inside of the certbot container
+* `--staging \`
 	* issues the ssl certificate for staging purposes
-* `-d dont-blindly-copy-past.face-palm` 
-	* specifies the domain/domains to verify for the ssl certificate 
+* `-d dont-blindly-copy-past.face-palm`
+	* specifies the domain/domains to verify for the ssl certificate
 4. If the command from step 3 is successful run `sudo rm -rf /docker-volumes/pwp`
-5. run the same command from step 3 but this time without the staging flag and make sure add an email for reminders on when to reissue the certificate 
+5. run the same command from step 3 but this time without the staging flag and make sure add an email for reminders on when to reissue the certificate
 ```
 sudo docker container run -it --rm \
 -v /docker-volumes/pwp/etc/letsencrypt:/etc/letsencrypt \
@@ -49,7 +50,7 @@ certbot/certbot \
 certonly --webroot \
 --webroot-path=/data/letsencrypt \
 --agree-tos  --no-eff-email \
---email your@email.you 
+--email your@email.you
 -d dont-blindly-copy-past.face-palm -d www.dont-blindly-copy-past.face-palm
 ```
 ### Setting Up Production Containers for PWP
@@ -57,21 +58,20 @@ certonly --webroot \
 2. add `/starter-code/php.Dockerfile` to your project's `/php/Dockerfile`
 3. add `/starter-code/default-docker-compose.yml` to your project's `/docker-compose.yml` \
 
-* __optional__: If you are not using HTTPS 
-	* add `/starter-code/default.conf` to `/production.conf` 
+* __optional__: If you are not using HTTPS
+	* add `/starter-code/default.conf` to `/production.conf`
 		* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
 	* add `/starter-code/default-doceker-compose` to your projects
 `/docker-compose.yml`
 		* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
-	* run `docker-compose up -d` 
+	* run `docker-compose up -d`
 ### Configuring Containers to Use HTTPS
 * add `/starter-code/production.conf` to your projects `/production.conf`  
 	* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
 * add `/starter-code/production-doceker-compose.yml` to your project's `/docker-compose.yml` \
 	* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
 3. run `mkdir dh-param` in your project on the host machine.
-4. run `sudo openssl dhparam -out dh-param/dhparam-2048.pem 2048` in your project on the host machine. 
+4. run `sudo openssl dhparam -out dh-param/dhparam-2048.pem 2048` in your project on the host machine.
 5. run `docker-compose up -d`
-### Configuring cron for automated reissuing of SSL certs. 
+### Configuring cron for automated reissuing of SSL certs.
 **To Be Added Later** see original documentation at the top.
-
