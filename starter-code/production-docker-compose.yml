@@ -5,7 +5,6 @@ services:
     build: ./php
   frontend:
     build: ./public_html
-    image: nginx:latest
     ports:
       - "80:80"
       - "443:443"
