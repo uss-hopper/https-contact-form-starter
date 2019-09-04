@@ -69,7 +69,7 @@ certonly --webroot \
 ### Configuring Containers to Use HTTPS
 1. add `/starter-code/production.conf` to your projects `/production.conf`  
 	* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
-2. add `/starter-code/production-doceker-compose.yml` to your project's `/docker-compose.yml` \
+2. replace `/starter-code/production-doceker-compose.yml` with your project's `/docker-compose.yml` \
 	* make sure to replace every instance of `dont-blindly-copy-past.face-palm` with your actual url
 3. run `mkdir dh-param` in your project on the host machine.
 4. run `sudo openssl dhparam -out dh-param/dhparam-2048.pem 2048` in your project on the host machine.
