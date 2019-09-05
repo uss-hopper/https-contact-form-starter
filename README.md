@@ -1,7 +1,7 @@
 # ISSUING  SSL CERTS WITH DOCKER CERTBOT
 ## [original documentation](https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx)
 ### Issuing the initial cert
-1. add `/starter-code/starter-docker-compose.yml` to `/docker-compose.yml`
+1. add `/starter-code/starter-docker-compose.yml` to your project's `/docker-compose.yml`
 2. add `/starter-code/nginx.conf` to `/nginx.conf`
 3. run `sudo docker-compose up`
 4. run the command below
