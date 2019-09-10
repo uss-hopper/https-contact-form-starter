@@ -18,7 +18,7 @@ certonly --webroot \
 --staging \
 -d dont-blindly-copy-past.face-palm -d www.dont-blindly-copy-past.face-palm
 ```
-* `-v /docker-volumes/pwp/etc/letsencrypt:/etc/letsencrypt \` \
+* `-v /docker-volumes/pwp/etc/letsencrypt:/etc/letsencrypt \` 
 	* Binds the `/etc/letsenscrypt` directory where the key is generated in the certbot container to the localhost's `docker-volumes/pwp/etc/letsencrypt`
 * `-v /docker-volumes/pwp/etc/lib/letsencrypt:/var/lib/letsencrypt \`
 	* binds `/var/lib/letsencrypt` in the certbot container to the localhost's `/docker-volumes/pwp/etc/lib/letsencrypt`
