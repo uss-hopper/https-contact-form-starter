@@ -74,5 +74,10 @@ certonly --webroot \
 3. run `mkdir dh-param` in your project on the host machine.
 4. run `sudo openssl dhparam -out dh-param/dhparam-2048.pem 2048` in your project on the host machine.
 5. run `docker-compose up -d`
+
 ### Configuring cron for automated reissuing of SSL certs.
-**To Be Added Later** see original documentation at the top.
+**If you do not do this step, you will start getting errors about invalid certificates in 90 days.**
+
+Instructions an be found at the [original link](https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx).  Follow in the instructions in the sections "How to Renew Let's Encrypt SSL Certificates with Certbot and Docker" and "Set Up a Cron Job to Automatically Renew Let's Encrypt SSL/TLS Certificates."
+
+If you wish, you can continue with the site-hardening steps after those sections, however they are not required for the bootcamp.
