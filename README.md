@@ -3,7 +3,7 @@
 ### Issuing the initial cert
 1. add `/starter-code/starter-docker-compose.yml` to your project's `/docker-compose.yml`
 2. add `/starter-code/nginx.conf` to `/nginx.conf`
-3. run `sudo docker-compose up`
+3. run `sudo docker-compose up -d`
 4. run the command below
 ```
 sudo docker container run -it --rm \
